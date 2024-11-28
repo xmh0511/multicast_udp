@@ -11,7 +11,7 @@ fn main(){
     std::thread::sleep(std::time::Duration::from_millis(5000));
     for i in 0..100{
         sock.send_to(b"hello multicast", SocketAddr::from((MULTI_CAST_ADDR,9090))).unwrap();
-        sock.send_to(b"hello broadcast", SocketAddr::from(([255,255,255,255],8888))).unwrap();
+        sock.send_to(b"hello broadcast", SocketAddr::from(([255,255,255,255],9090))).unwrap();
         std::thread::sleep(std::time::Duration::from_millis(100));
         print!("send {} times\r",i+1);
         std::io::stdout().flush().unwrap();
