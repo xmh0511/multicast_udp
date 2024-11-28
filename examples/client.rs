@@ -8,4 +8,5 @@ fn main(){
         sock.send_to(b"hello", SocketAddr::from(([234,2,2,2],8888))).unwrap();
     }
     println!("send over");
+    sock.send_to(b"hello dedicated", SocketAddr::from(([192,168,1,160],9090))).unwrap();
 }
