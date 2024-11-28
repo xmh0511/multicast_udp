@@ -9,6 +9,7 @@ fn main(){
     std::thread::sleep(std::time::Duration::from_millis(5000));
     for i in 0..100{
         sock.send_to(b"hello", SocketAddr::from(([239,255,42,98],9090))).unwrap();
+        sock.send_to(b"hello", SocketAddr::from(([255,255,255,255],9090))).unwrap();
         std::thread::sleep(std::time::Duration::from_millis(100));
         print!("send {} times\r",i+1);
         std::io::stdout().flush().unwrap();
