@@ -4,6 +4,7 @@ fn main(){
     let local_addr = sock.local_addr().unwrap();
     println!("239,255,42,98 is mulitcast {}",Ipv4Addr::from([239,255,42,98]).is_multicast());
     println!("local {local_addr}");
+    sock.set_broadcast(true).unwrap();
     sock.set_multicast_loop_v4(true).unwrap();
     sock.join_multicast_v4(&Ipv4Addr::from([239,255,42,98]), &Ipv4Addr::UNSPECIFIED).unwrap();
     std::thread::sleep(std::time::Duration::from_millis(5000));
