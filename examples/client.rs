@@ -13,6 +13,7 @@ fn main(){
         print!("send {} times\r",i+1);
         std::io::stdout().flush().unwrap();
     }
+    println!();
     println!("send over");
     sock.send_to(b"hello dedicated", SocketAddr::from(([192,168,1,158],9090))).unwrap();
 }
